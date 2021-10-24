@@ -2,7 +2,6 @@ import socket
 import sys
 def main():
     mes='GET / HTTP1.1\r\n'
-    mes+='Host: "yahoo.co.jp\r\n'
     mes+='Connection: close\r\n'
     mes+='\r\n'
 

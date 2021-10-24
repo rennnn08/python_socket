@@ -1,0 +1,5 @@
+pythonを実行できる環境下で、urlopen.pyファイルを置いたフォルダ下で、
+以下のコマンドを実行するとindex.htmlが作成されます
+Python urlopen.py www.yahoo.co.jp
+
+完成していないため、完全なhtmlを取得できない状況です。
