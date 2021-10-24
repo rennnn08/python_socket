@@ -10,7 +10,6 @@ def main():
     mes+='Host:' + url[1] + '\r\n'
     mes+='Connection: close\r\n'
     mes+='\r\n'
-    print(mes)
 
     s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.connect((url[1],80))
@@ -24,7 +23,6 @@ def main():
         data = s.recv(1024).decode("utf-8") 
         split_data = data.split('\r\n')
         for d in split_data:
-            print(d)
             if flag:
                 data_sum = data_sum + d
             if 'Content-Length' in d:
