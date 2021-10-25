@@ -8,8 +8,7 @@ def main():
 
     mes='GET / HTTP/1.1\r\n'
     mes+='Host:' + url[1] + '\r\n'
-    mes+='Connection: close\r\n'
-    mes+='\r\n'
+    mes+='Connection: close\r\n\r\n'
 
     s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.connect((url[1],80))
@@ -20,12 +19,13 @@ def main():
     flag = False
 
     while True:
-        data = s.recv(1024).decode("utf-8") 
+        data = s.recv(1024).decode("utf-8", 'ignore') 
+        print(data)
         split_data = data.split('\r\n')
         for d in split_data:
             if flag:
                 data_sum = data_sum + d
-            if 'Content-Length' in d:
+            if 'charset' in d:
                 flag = True
         
         if not data:
